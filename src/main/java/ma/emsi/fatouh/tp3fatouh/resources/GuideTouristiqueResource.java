@@ -16,7 +16,8 @@ public class GuideTouristiqueResource {
     @Path("lieu/{ville_ou_pays}")
     @Produces(MediaType.APPLICATION_JSON)
     public Response villeOuPays(@PathParam("ville_ou_pays") String lieu) {
-        return Response.ok(lieu).build();
+        String resultat = llm.envoyerRequete(lieu);
+        return Response.ok(resultat).build();
     }
 }
 
