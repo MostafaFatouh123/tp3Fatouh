@@ -61,6 +61,7 @@ public class LlmClientPourGemini {
                    "endroits_a_visiter": ["endroit 1", "endroit 2"],
                    "prix_moyen_repas": "<prix> <devise du pays>"
                 }
+                N'utilise pas Markdown.
                 """;
 
         chatMemory.add(SystemMessage.from(systemRole));
