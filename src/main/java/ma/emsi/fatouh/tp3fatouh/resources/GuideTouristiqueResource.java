@@ -13,10 +13,10 @@ public class GuideTouristiqueResource {
     LlmClientPourGemini llm;
 
     @GET
-    @Path("lieu/{ville_ou_pays}")
+    @Path("lieu/{ville_ou_pays}/{nbEndroits}")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response villeOuPays(@PathParam("ville_ou_pays") String lieu) {
-        String resultat = llm.envoyerRequete(lieu);
+    public Response villeOuPays(@PathParam("ville_ou_pays") String lieu, @PathParam("nbEndroits") int nbEndroits) {
+        String resultat = llm.envoyerRequete(lieu,nbEndroits);
         return Response.ok(resultat).build();
     }
 }

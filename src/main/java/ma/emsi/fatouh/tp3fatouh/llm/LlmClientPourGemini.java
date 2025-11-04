@@ -50,7 +50,7 @@ public class LlmClientPourGemini {
                 .build();
     }
 
-    public String envoyerRequete(String lieu) {
+    public String envoyerRequete(String lieu, int nbEndroits) {
         chatMemory.clear();
 
         String systemRole = """
@@ -62,7 +62,8 @@ public class LlmClientPourGemini {
                    "prix_moyen_repas": "<prix> <devise du pays>"
                 }
                 N'utilise pas Markdown.
-                """;
+                Tu dois retourner EXACTEMENT %d endroits dans "endroits_a_visiter".
+                """.formatted(nbEndroits);
 
         chatMemory.add(SystemMessage.from(systemRole));
 
